@@ -48,9 +48,9 @@ class Result:
 s = str(urlopen("https://jenyay.net/uploads/Student/Modelling/task_rcs.xml").read())
 n = s.find('number="2"')
 s = s[n:s.find('/', n)]
-D = float(re.search('(?<=D=")\d+\.?\d*e?-?\d?(?=")', s).group())
-fmin = float(re.search('(?<=fmin=")\d+\.?\d*e?-?\d?(?=")', s).group())
-fmax = float(re.search('(?<=fmax=")\d+\.?\d*e?-?\d?(?=")', s).group())
+D = float(re.search('(?<=D=")[0-9]+.?[0-9]*e?-?[0-9]?(?=")', s).group())
+fmin = float(re.search('(?<=fmin=")[0-9]+.?[0-9]*e?-?[0-9]?(?=")', s).group())
+fmax = float(re.search('(?<=fmax=")[0-9]+.?[0-9]*e?-?[0-9]?(?=")', s).group())
 res = Result(D, fmin, fmax)
 res.output()
 
